@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <br>
+  <img width="400" src="" alt="로고">
+  <br>
+  <br>
+</p>
 
-## Getting Started
+<h2 align='center'>blog ormor</h2>
 
-First, run the development server:
+<p align='center'>
+설명 <a href='' target="_blank">링크</a>
+<br><br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align='center'>
+<i>Created by: <a href='링크 경로' target="_blank">링크</a></i>
+<br><br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<div align="center" style="line-height: 1;">
+<a href='https://github.com/' target="_blank">
+<img src='이미지 경로' alt='스킬 혹은 참고링크'>
+</a>
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Table of Contents
 
-## Learn More
+1. [Introduction](#1-introduction)
+2. [Preview](#2-preview)
+3. [Features](#3-features)
+4. [Quick Start](#4-quick-start)
+5. [How to Use](#5-how-to-use)
+6. [Version History](#6-version-history)
+7. [License](#7-license)
+8. [Contact](#8-contact)
 
-To learn more about Next.js, take a look at the following resources:
+## 1. Introduction
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. Preview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 3. Features
 
-## Deploy on Vercel
+## 4. Quick Start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 5. How to Use
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 6. Version History
+
+## 7. License
+
+## 8. Contact
