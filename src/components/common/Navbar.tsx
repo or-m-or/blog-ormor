@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
+import { NAV_ITEMS } from '@/constants/Navbar';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +18,6 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const menuItems = [
-    { name: 'PROJECT', path: '/projects' },
-    { name: 'SKILL', path: '/skills' },
-    { name: 'CONTACT', path: '/contact' },
-  ];
 
   return (
     <nav
@@ -50,7 +45,7 @@ export default function Navbar() {
           {/* 데스크톱 메뉴 */}
           <div className='hidden md:block'>
             <div className='ml-10 flex items-center space-x-4'>
-              {menuItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
@@ -78,7 +73,7 @@ export default function Navbar() {
       {isOpen && (
         <div className='md:hidden'>
           <div className='space-y-1 px-2 pt-2 pb-3'>
-            {menuItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
