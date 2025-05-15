@@ -6,28 +6,30 @@
 
 # --- COMMIT END ---
 #   <타입> 리스트
-🎉 INIT     : 프로젝트 시작
-🔧 CONFIG   : 설정 파일 추가/수정
-📍 DEPS     : 의존성 변경 (다운/업그레이드, 추가/삭제)
-✨ FEAT     : 새 기능
-♻️ REFACTOR : 코드 리팩토링
-🐛 FIX      : 버그 수정, 컴파일러 / 린터 경고 수정
-🚑️ HOTFIX   : 긴급 수정
-💄 STYLE    : UI 스타일 코드 작성/수정
-🔨 CHORE    : 기타 모든 수정
-⏪️ REVERT   : 변경사항 되돌리기
-🚚 RENAME   : 파일, 경로 등 리소스 이동/이름변경
-🔥 REMOVE   : 코드/파일 삭제
-🗃️ DB       : 데이터베이스 관련 변경 수행
-✅ TEST     : 테스트 코드 추가/수정
-🔀 MERGE    : 브랜치 병합
-♿️ A11Y     : 접근성 개선
-💚 CI       : CI 빌드 수정
-🔍️ SEO      : 검색 엔진 최적화 개선
-🚀 RELEASE  : 배포 버전/태그
-🔊 LOG      : 로그 추가/업데이트/삭제
-💬 COMM     : 소스 코드 내 주석 추가/수정/삭제
-📝 DOCS     : 문서 추가/업데이트, 라이센스 추가/업데이트
+🎉 : Begin a project.
+🔧 : Add or update configuration files.
+⬆️ : Upgrade dependencies.
+⬇️ : Downgrade dependencies.
+✨ : Introduce new features.
+♻️ : Refactor code.
+🐛 : Fix a bug.
+🚑️ : Critical hotfix.
+💄 : Add or update the UI and style files.
+🙈 : Add or update a .gitignore file.
+⏪️ : Revert changes.
+🚚 : Move or rename resources (e.g.: files, paths, routes).
+🔥 : Remove code or files.
+🗃️ : Perform database related changes.
+✅ : Add, update, or pass tests.
+🔀 : Merge branches.
+💚 : Fix CI Build.
+🔍️ : Improve SEO.
+🔖 : Release / Version tags.
+🚀 : Deploy stuff.
+🔊 : Add or update logs.
+🔇 : Remove logs.
+💡 : Add or update comments in source code.
+📝 : Add or update documentation.
 # ------------------  
 #   제목 첫 글자를 대문자로  
 #   제목은 명령문으로  
