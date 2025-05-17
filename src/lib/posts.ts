@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import dayjs from 'dayjs';
-import type { PostCategory, PostTag } from '@/constants/post';
+import type { PostCategory, PostTag } from '@/setting/post';
 
 // MDX 파일들이 저장된 디렉토리 경로
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content');

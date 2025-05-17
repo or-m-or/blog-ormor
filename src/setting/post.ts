@@ -37,16 +37,16 @@ export const CATEGORY_CONFIG = {
     style: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
     icon: Book,
   },
-  Algorithms: {
-    label: 'Algorithms',
-    style: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
-    icon: Cpu,
-  },
-  Projects: {
-    label: 'Projects',
-    style: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100',
-    icon: FolderKanban,
-  },
+  // Algorithms: {
+  //   label: 'Algorithms',
+  //   style: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
+  //   icon: Cpu,
+  // },
+  // Projects: {
+  //   label: 'Projects',
+  //   style: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100',
+  //   icon: FolderKanban,
+  // },
 } as const;
 
 export const TAG_CONFIG = {

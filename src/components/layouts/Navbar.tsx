@@ -44,12 +44,12 @@ export default function Navbar() {
 
           {/* 데스크톱 메뉴 */}
           <div className='hidden md:block'>
-            <div className='ml-10 flex items-center space-x-4 font-moneygraphy'>
+            <div className='ml-10 flex items-center space-x-4 '>
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className='hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 text-base font-medium'
+                  className='hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 text-base font-medium font-dunggeunmo'
                 >
                   {item.name}
                 </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
               <Link
                 key={item.path}
                 href={item.path}
-                className='hover:bg-accent hover:text-accent-foreground block rounded-md px-3 py-2 text-base font-medium'
+                className='hover:bg-accent hover:text-accent-foreground block rounded-md px-3 py-2 text-base font-medium font-dunggeunmo'
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
