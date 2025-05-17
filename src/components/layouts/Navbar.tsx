@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
-import { NAV_ITEMS } from '@/constants/Navbar';
+import { NAV_ITEMS } from '@/setting/navitems';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ export default function Navbar() {
           {/* 로고 */}
           <Link
             href='/'
-            className='font-dunggeunmo flex flex-shrink-0 items-center space-x-2 text-2xl font-bold whitespace-nowrap text-white'
+            className='font-dunggeunmo flex flex-shrink-0 items-center space-x-2 text-2xl font-bold whitespace-nowrap text-neutral-900 dark:text-white'
           >
             <Image
               src='/icons/asterisk.png'
@@ -44,7 +44,7 @@ export default function Navbar() {
 
           {/* 데스크톱 메뉴 */}
           <div className='hidden md:block'>
-            <div className='ml-10 flex items-center space-x-4'>
+            <div className='ml-10 flex items-center space-x-4 font-moneygraphy'>
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.path}

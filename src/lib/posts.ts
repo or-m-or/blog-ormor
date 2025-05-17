@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import dayjs from 'dayjs';
+import type { PostCategory, PostTag } from '@/constants/post';
 
 // MDX 파일들이 저장된 디렉토리 경로
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content');
@@ -11,8 +12,8 @@ export type FrontMatter = {
   title: string;        // 제목
   description: string;  // 요약
   thumbnail: string;    // 미리보기 이미지 경로
-  category: string;     // 카테고리
-  tags: string[];       // 태그 목록
+  category: PostCategory;     // 카테고리
+  tags: PostTag[];       // 태그 목록
   date: string;         // 작성 일자
   slug: string;         // 경로
   draft?: boolean;      // 작성 중 (true 이면 작성 중)

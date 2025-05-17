@@ -1,29 +1,16 @@
-import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
+import { VerticalPostCard } from '@/components/card/VerticalPostCard';
 
 export default function Home() {
   const posts = getAllPosts();
 
-   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
-      <h1 className="text-4xl font-bold mb-8">📚 블로그 글 목록</h1>
-      <ul className="space-y-6">
+  return (
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`}>
-              <div className="group">
-                <h2 className="text-2xl font-semibold group-hover:underline">
-                  {post.title}
-                </h2>
-                <p className="text-sm text-gray-500 mt-1">{post.date}</p>
-                <p className="text-base text-gray-700 dark:text-gray-300">
-                  {post.description}
-                </p>
-              </div>
-            </Link>
-          </li>
+          <VerticalPostCard key={post.slug} post={post} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
