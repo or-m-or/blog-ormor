@@ -1,0 +1,32 @@
+{
+  "Post Frontmatter": {
+    "prefix": ["matter", "---"],
+    "description": "블로그용 frontmatter 템플릿",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "description: \"$2\"",
+      "thumbnail: \"/images/blog/$TM_FILENAME_BASE.png\"",
+      "category: \"$3\"", 
+      "tags:",
+      "  - $4",
+      "date: \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND\"",
+      "slug: \"$TM_FILENAME_BASE\"",
+      "draft: false",
+      "---",
+      "",
+      "$0"
+    ],
+    "scope": "md,mdx"
+  },
+  "Current Date (YYYY-MM-DD)": {
+    "prefix": ["cd", "current_date"],
+    "description": "현재 날짜 출력 : YYYY-MM-DD",
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+  },
+  "Current DateTime": {
+    "prefix": ["cdt", "current_date_time"],
+    "description": "현재 날짜 및 시간 출력 : YYYY-MM-DD HH:mm:ss",
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+  },
+}

@@ -1,0 +1,36 @@
+@layer components {
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    scroll-margin-top: var(--scroll-mt);
+  }
+
+  .prose hr,
+  .prose thead,
+  .prose tbody tr {
+    border-color: theme('colors.neutral.300');
+  }
+
+  .prose blockquote p:first-of-type::before,
+  .prose blockquote p:last-of-type::after,
+  .prose code::before,
+  .prose code::after {
+    content: none;
+  }
+
+  .dark .prose blockquote {
+    border-left-color: theme('colors.neutral.700');
+    color: theme('colors.neutral.300');
+  }
+
+  .dark .prose hr,
+  .dark .prose thead,
+  .dark .prose tbody tr {
+    border-color: theme('colors.neutral.700');
+  }
+
+  .dark .prose ol li::marker,
+  .dark .prose ul li::marker {
+    color: theme('colors.neutral.500');
+  }
+}

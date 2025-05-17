@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* ------------------------------
+   공통 마크다운(markdown) 스타일
+   (Tailwind Typography + custom 조합)
+------------------------------- */
+
+/* 전체 텍스트 색상을 보조 색상으로 설정 */
+.prose {
+  @apply text-neutral-700 dark:text-neutral-350;
+}
+
+/* 강조 텍스트와 제목들에 메인(primary) 색상 적용 */
+.prose strong,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose thead th {
+  @apply text-neutral-900 dark:text-neutral-200;
+}
+
+/* 취소선 텍스트에 중간(muted) 색상 적용 */
+.prose del {
+  @apply text-neutral-500 dark:text-neutral-470;
+}
+
+/* 문단(p) 기본 줄 간격 설정 */
+.prose p {
+  @apply leading-7 sm:leading-8;
+}
+
+/* 이미지 중앙 정렬 */
+.prose img {
+  @apply my-0 mx-auto;
+}
+
+/* 이미지 아래에 캡션(span)이 있을 경우 간격 조정 */
+.prose img + span {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* 기본 링크 스타일 설정 */
+.prose a {
+  @apply text-neutral-900 dark:text-neutral-200 break-words transition-all;
+  @apply decoration-neutral-450 underline-offset-2 hover:decoration-neutral-350;
+}
+
+/* 링크 안에 strong 요소가 있는 경우 별도 강조 스타일 적용 */
+.prose a:has(strong) {
+  @apply decoration-yellow-300 decoration-wavy underline-offset-1 hover:decoration-yellow-400;
+  @apply dark:decoration-yellow-300/70 dark:hover:decoration-yellow-300/90;
+}
+
+/* 코드 태그 기본 폰트 설정 (fallback 포함) */
+.prose code {
+  font-family: var(--font-mono), Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+/* 인라인 코드 스타일 (pre 태그 안의 자식은 제외) */
+.prose code:not(:where(pre *)) {
+  @apply text-neutral-900 dark:text-neutral-200 rounded-lg px-2 py-0.5 content-none;
+  @apply bg-neutral-200 dark:bg-[var(--prism-background)];
+}
+
+/* 코드 블럭의 스크롤바 감추기 - Webkit 브라우저용 */
+.prose pre::-webkit-scrollbar {
+  display: none;
+}
+
+/* 코드 블럭의 스크롤바 감추기 - IE 및 Firefox 용 */
+.prose pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+/* -------------------------------------
+   MDX 콘텐츠의 여백 및 앵커 링크 스타일
+-------------------------------------- */
+
+/* .prose 내부에서 첫 번째 자식 요소에만 상단 마진 추가
+   (단, <TocTop /> 컴포넌트는 첫 요소로 오지만 숨겨져 있으므로 제외됨)
+*/
+.prose > :first-child {
+  margin-top: 3rem !important;
+}
+
+/* .lg:hidden 다음에 오는 요소에만 데스크탑 기준 여백 추가
+   - 주로 목차가 사라졌을 때 제목 또는 본문을 아래로 밀기 위해 사용
+*/
+.prose > .lg\:hidden + * {
+  @apply lg:mt-12;
+}
+
+/* -------------------------------------
+   rehype-autolink-headings 용 앵커 스타일
+   (제목 h1~h6에 # 버튼 삽입)
+-------------------------------------- */
+
+/* 앵커 아이콘 위치 및 기본 스타일
+   - ml-10: 제목 왼쪽으로 밀어 붙이기
+   - mt-1: 세로 정렬 조정
+   - opacity-0: 기본은 보이지 않도록
+   - hover 시 opacity 변경으로 등장
+   - dark 모드에 맞춰 배경/텍스트 색상 적용
+*/
+.prose .anchor {
+  @apply absolute -ml-10 mt-1 flex h-6 w-6 items-center justify-center opacity-0 transition-all;
+  @apply rounded-md border-none no-underline ring-1 ring-neutral-700/10;
+  @apply hover:shadow hover:ring-neutral-700/30 dark:bg-neutral-700 dark:text-neutral-400;
+}
+
+/* 앵커 내부에 SVG 형태의 '#' 아이콘을 마스크로 삽입
+   - 시멘틱한 텍스트가 아닌 시각적 요소로 처리
+   - dark/light 테마에 따라 색상 자동 적용
+*/
+.prose .anchor:after {
+  content: ' ';
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' aria-hidden='true'%3E%3Cpath d='M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' /%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  @apply h-4 w-4 bg-neutral-700 dark:bg-neutral-400;
+}
+
+/* 제목 요소나 내부에 마우스를 올리면 앵커(#) 아이콘 표시 */
+.prose .anchor:hover,
+.prose *:hover > .anchor {
+  @apply md:opacity-100;
+}

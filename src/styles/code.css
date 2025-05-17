@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* ---------------------------
+    코드 블럭 (``` 코드) 스타일링 
+ ----------------------------*/
+
+/* 
+  MDX의 코드 블럭에 일괄 적용
+  - rounded-md: 모서리 둥글게
+  - p-4: 내부 여백
+  - overflow-x-auto: 긴 코드 줄 가로 스크롤
+  - 배경: GitHub 다크 스타일 비슷한 배경색
+  - 글자색: 흰색
+*/
+.prose pre {
+  @apply rounded-md p-4 overflow-x-auto bg-[#0d1117] text-white;
+}
+
+/* 
+  rehype-code-titles 플러그인
+  - 배경색: 어두운 회색
+  - 글자색: 흰색
+  - 패딩: 상하 0.5rem, 좌우 1rem
+  - 윗부분만 둥글게 (rounded-t-md): 아래는 pre와 붙기 때문
+  - 글자 크기: 작은 글씨
+  - 폰트 굵기: 반쯤 굵게
+*/
+.prose .rehype-code-title {
+  @apply bg-gray-800 text-white px-4 py-2 rounded-t-md text-sm font-semibold;
+}
