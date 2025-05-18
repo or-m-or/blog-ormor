@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme';
+const { spacing } = require('tailwindcss/defaultTheme');
 
 export default {
   content: [
@@ -32,6 +32,17 @@ export default {
         base: '0px 0px 10px rgba(234, 179, 8, 0.3)',
         'base-bold': '0px 0px 7px rgba(234, 179, 8, 0.7)',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            //...
+            // MDX 앵커 클릭 시 스크롤 설정
+            'h1,h2,h3,h4': {
+              'scroll-margin-top': spacing[32],
+            },
+          }
+        }
+      })
     }
   },
 } satisfies Config;

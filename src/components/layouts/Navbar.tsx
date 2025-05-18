@@ -5,8 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
 import { NAV_ITEMS } from '@/setting/navitems';
+import { SearchButton } from '@/components/search/SearchButton';
+import type { Post } from '@/lib/types';
+import ModeToggleButton from '@/components/button/ModeToggleButton';
 
-export default function Navbar() {
+interface Props {
+  posts: Post[];
+}
+
+export default function Navbar({ posts }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -25,12 +32,12 @@ export default function Navbar() {
         isScrolled ? 'bg-background/50 backdrop-blur-md' : 'bg-background'
       }`}
     >
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div className='flex h-16 items-center justify-between'>
           {/* 로고 */}
           <Link
             href='/'
-            className='font-dunggeunmo flex flex-shrink-0 items-center space-x-2 text-2xl font-bold whitespace-nowrap text-neutral-900 dark:text-white'
+            className='font-seoleim flex flex-shrink-0 items-center space-x-2 text-2xl font-bold whitespace-nowrap text-neutral-900 dark:text-white'
           >
             <Image
               src='/icons/asterisk.png'
@@ -49,11 +56,13 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className='hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 text-base font-medium font-dunggeunmo'
+                  className='hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 text-base font-medium'
                 >
                   {item.name}
                 </Link>
               ))}
+              <ModeToggleButton />
+              <SearchButton posts={posts} />
             </div>
           </div>
 

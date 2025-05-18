@@ -6,7 +6,7 @@
 @import "../styles/components.css";
 @import "../styles/utilities.css";
 @import "../styles/typography.css";
-@import "../styles/code.css";       
+@import "../styles/intellij-prism.css";
 @import "../styles/prose.css";
 
 /* 외부 수식 스타일 (KaTeX) */
@@ -20,6 +20,7 @@
   --font-pretendard: 'Pretendard Variable', sans-serif;
   --font-moneygraphy: 'Moneygraphy', sans-serif;
   --font-dunggeunmo: 'DungGeunMo', sans-serif;
+  --font-seoleim: 'Seoleim', sans-serif;
 
   --background: #ededed;
   --foreground: #0a0a0a;

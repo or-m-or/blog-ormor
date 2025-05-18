@@ -1,6 +1,6 @@
 // 네비게이션 바 메뉴 구성
 export const NAV_ITEMS = [
-  { name: 'Blog', path: '/' },                    // 임시
+  { name: 'BLOG', path: '/' },                    // 임시
 // { name: 'Stories', path: '/stories' },        // 나의 이야기와 경험, 인사이트 기록
 // { name: 'Notes', path: '/notes' },            // 배우고 익힌 지식 공유 및 기록
 // { name: 'Archive', path: '/archive' },       // 모든 태그, 게시물 조회

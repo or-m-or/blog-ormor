@@ -3,11 +3,11 @@
 import { useRouter } from "next/navigation";
 import { CategoryBadge } from "@/components/badge/CategoryBadge";
 import { TagBadge } from "@/components/badge/TagBadge";
-import type { FrontMatter } from "@/lib/posts";
+import type { PostMatter } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
 
 interface Props {
-  post: FrontMatter;
+  post: PostMatter;
 }
 
 export const ThumbnailPostCard = ({ post }: Props) => {

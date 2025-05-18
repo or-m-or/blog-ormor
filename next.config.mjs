@@ -19,13 +19,18 @@ const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   // 마크다운 플러그인 추가 가능
   options: {
-    remarkPlugins: [remarkToc, remarkGfm, remarkBreaks, remarkMath],
+    remarkPlugins: [
+      remarkToc,    // Table Of Content(목차) 생성
+      remarkGfm,    // Github 스타일 Markdown 문법 지원
+      remarkBreaks, // 줄바꿈 강제 적용
+      remarkMath    // 수학 수식 지원
+    ],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeCodeTitles,
-      rehypePrism,
-      rehypeKatex,
-      [rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }]
+      rehypeSlug,       // Heading에 ID 부여
+      rehypeCodeTitles, // 코드블럭 타이틀 렌더링
+      rehypePrism,      // 코드블럭 Syntax Highlight
+      rehypeKatex,      // Katex 수식 렌더링
+      [rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }] // Heading에 앵커 링크 추가
     ],
     format: 'mdx',
   },

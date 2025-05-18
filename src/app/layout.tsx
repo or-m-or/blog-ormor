@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from '@/components/layouts/Navbar';
+import NavbarWrapper from '@/components/layouts/NavbarWrapper';
 import Footer from '@/components/layouts/Footer';
+import { Providers } from "@/components/layouts/Providers";
 
 const moneygraphy = localFont({
   src: "./fonts/Moneygraphy-Rounded.woff2",
@@ -17,11 +18,11 @@ const pretendard = localFont({
   variable: "--font-pretendard",
 });
 
-const dunggeunmo = localFont({
-  src: "./fonts/DungGeunMo.woff2",
+const seoleim = localFont({
+  src: "./fonts/SEOLEIMcool.otf",
   display: "swap",
-  variable: "--font-dunggeunmo",
-});
+  variable: "--font-seoleim",
+})
 
 export const metadata: Metadata = {
   title: "허태환의 블로그",
@@ -36,12 +37,15 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${moneygraphy.variable} ${pretendard.variable} ${dunggeunmo.variable}`}
+      suppressHydrationWarning
+      className={`${moneygraphy.variable} ${pretendard.variable} ${seoleim.variable}`}
     >
       <body>
-        <Navbar />
-        <main className='min-h-screen pt-16' >{children}</main>
-        <Footer />
+        <Providers>
+          <NavbarWrapper />
+          <main className='min-h-screen pt-16' >{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

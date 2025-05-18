@@ -28,12 +28,12 @@ export const CATEGORY_CONFIG = {
     icon: Globe,
   },
   Stories: {
-    label: 'Stories',
+    label: '회고/경험',
     style: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100',
     icon: User,
   },
   Notes: {
-    label: 'Notes',
+    label: '개발 노트',
     style: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
     icon: Book,
   },
