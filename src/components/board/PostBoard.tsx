@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter, useSearchParams } from 'next/navigation'
 import { ThumbnailPostCard } from '@/components/card/ThumbnailCard';
 import { POST_CATEGORIES, CATEGORY_CONFIG, type PostCategory } from '@/setting/post';
 import type { Post } from '@/lib/types';
@@ -10,6 +11,18 @@ interface BoardProps {
 }
 
 export function PostBoard({ posts }: BoardProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // 현재 URL의 쿼리에서 category 가져오기
+  const selectedCategory = (searchParams.get('category') || 'ALL') as PostCategory;
+
+  const handleTabChange = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('category', value);
+    router.push(`?${params.toString()}`);
+  };
+
   const getFilteredPosts = (category: PostCategory): Post[] => {
     return posts.filter((post) => {
       const matchesCategory = category === 'ALL' || post.category === category;
@@ -34,7 +47,8 @@ export function PostBoard({ posts }: BoardProps) {
       {/* 카테고리 탭 필터 */}
       <UnderlineTabs
         items={tabItems}
-        defaultValue="ALL"
+        defaultValue={selectedCategory}
+        onValueChange={handleTabChange}
         className="mb-8"
       />
     </div>

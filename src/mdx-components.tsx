@@ -16,7 +16,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     // 추후 Youtube 등 커스텀컴포넌트 스타일 추가
-
     ...components,
   }
 }

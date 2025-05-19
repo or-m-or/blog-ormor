@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { CategoryBadge } from "@/components/badge/CategoryBadge";
 import { TagBadge } from "@/components/badge/TagBadge";
-import type { PostMatter } from "@/lib/mdx";
+import type { PostMatter } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 interface Props {

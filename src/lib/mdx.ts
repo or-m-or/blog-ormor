@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import dayjs from 'dayjs';
 import { PostMatter, Post } from './types';
+import { parseToc } from './parseTOC';
 
 // MDX 파일들이 저장된 루트 디렉토리 경로
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
@@ -31,13 +32,40 @@ export function generateStaticParams() {
   });
 }
 
-// 슬러그를 기반으로 MDX 컴포넌트를 동적으로 로드
+// slug로 게시물 불러오기
 export async function getPostBySlug(slug: string) {
-  const { default: Post } = await import(`@/content/${slug}.mdx`);
-  return Post;
+  const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const { data, content } = matter(raw);
+
+  const { slug: parsedSlug } = parsePostAbstract(filePath);
+
+  const toc = parseToc(content);
+
+  const frontmatter: PostMatter = {
+    ...(data as PostMatter),
+    slug: parsedSlug,
+    tags: (data.tags ?? []).filter(Boolean),
+    date: dayjs(data.date).format('YYYY-MM-DD'),
+    toc,
+  };
+
+  // MDX import
+  // remark-frontmatter, remark-mdx-frontmatter 설치 후 등록해야, frontmatter이 화면에 렌더링 되지 않음
+  const mod = await import(`@/content/${slug}.mdx`);
+  const Post = mod.default;
+
+  if (typeof Post !== 'function') {
+    throw new Error(`MDX 파일에서 React 컴포넌트 default export 누락됨: ${slug}`);
+  }
+
+  return {
+    Post,
+    frontmatter,
+  };
 }
 
-// slug, 경로 등 요약 정보 추출
+// post 개요 정보 추출
 export function parsePostAbstract(filePath: string) {
   const relativePath = path.relative(CONTENT_DIR, filePath);
   const slug = relativePath.replace(/\.mdx$/, '').split(path.sep).join('/');

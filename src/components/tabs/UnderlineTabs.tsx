@@ -15,16 +15,17 @@ interface UnderlineTabsProps {
   items: TabItem[];
   defaultValue?: string;
   className?: string;
+  onValueChange?: (value: string) => void;
 }
 
 export default function UnderlineTabs({
   items,
   defaultValue,
   className,
+  onValueChange,
 }: UnderlineTabsProps) {
   return (
-    <Tabs defaultValue={defaultValue || items[0]?.value} className={className}>
-      {/* 밑줄 전체 확장 */}
+    <Tabs defaultValue={defaultValue || items[0]?.value} className={className} onValueChange={onValueChange}>
       <div className="w-full border-b border-border">
         <TabsList className="flex gap-4 bg-transparent px-0 py-0">
           {items.map((item) => (

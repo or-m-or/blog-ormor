@@ -14,21 +14,34 @@ interface Props {
 
 export default function SearchOverlay({ onClose, posts }: Props) {
   const [query, setQuery] = useState('');
-
-  // 오버레이 상태에서 스크롤 방지
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, []);
-
+  const [visible, setVisible] = useState(false);
   const filtered = posts.filter((post) =>
     post.title.toLowerCase().includes(query.toLowerCase())
   );
 
+  // 오버레이 상태에서 스크롤 방지
+  useEffect(() => {
+  document.documentElement.style.overflow = 'hidden'; // html
+  document.body.style.overflow = 'hidden'; // body
+
+  const t = setTimeout(() => setVisible(true), 10);
+
+  return () => {
+    clearTimeout(t);
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  };
+}, []);
+
   return (
-    <div className="fixed inset-0 z-50 bg-white dark:bg-background px-6 py-10 overflow-y-auto">
+    <div
+  className={`
+    fixed top-0 left-0 right-0 h-screen z-50
+    px-6 py-10 overflow-y-auto
+    bg-white dark:bg-background transition-opacity duration-300
+    ${visible ? 'opacity-100 visible' : 'opacity-0 invisible'}
+  `}
+>
       <div className="max-w-3xl mx-auto">
         {/* 상단 바 */}
         <div className="flex justify-between items-center mb-8">
@@ -65,10 +78,14 @@ export default function SearchOverlay({ onClose, posts }: Props) {
 
         {/* 검색 결과 */}
         <ul className="space-y-3">
-          {filtered.map((post) => (
-            <ListItemCard key={post.slug} post={post} />
-          ))}
-        </ul>
+        {filtered.map((post) => (
+          <li key={post.slug}>
+            <Link href={`/posts/${post.slug}`} onClick={onClose}>
+              <ListItemCard post={post} />
+            </Link>
+          </li>
+        ))}
+      </ul>
       </div>
     </div>
   );

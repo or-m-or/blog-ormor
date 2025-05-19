@@ -1,3 +1,10 @@
+// TOC 항목 타입 정의
+export type TocItem = {
+  id: string;
+  text: string;
+  level: number;
+};
+
 // 게시물 frontmatter 타입
 export type PostMatter = {
   title: string;        // 제목
@@ -8,6 +15,7 @@ export type PostMatter = {
   date: string;         // 작성 일자
   slug: string;         // 경로
   draft?: boolean;      // 작성 중 (true 이면 작성 중)
+  toc?: TocItem[];
 };
 
 // 전체 게시물 타입
